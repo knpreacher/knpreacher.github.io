@@ -1,11 +1,11 @@
 <template>
     <div class="page-header"
          :style="{'background-image': `url('${backgroundImage}')`}">
-        <div class="fw fh d-flex align-md-end" style="background: rgba(0, 0, 0, 0.6)">
+        <div class="fw fh d-flex align-end" style="background: rgba(0, 0, 0, 0.6)">
             <v-container>
                 <v-card flat dark tile
                         class="d-flex align-center transparent pa-3">
-                    <div >
+                    <div>
                         <v-avatar size="180" class="avatar-wb">
                             <!--<span>It's me!</span>-->
                             <v-img src="https://sun9-13.userapi.com/c851432/v851432251/1647ca/aFjBtkzZbQs.jpg"
@@ -42,7 +42,6 @@
         height: 400px;
         background-repeat: repeat;
     }
-
     .avatar-wb {
         border: 3px aliceblue solid;
     }
