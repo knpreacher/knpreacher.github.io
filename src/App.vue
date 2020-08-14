@@ -7,14 +7,16 @@
             <NavBar :in-color="colorToolBar"/>
             <Header id="header"/>
             <v-container>
-                <AboutTop v-scroll="onScroll" @category-click="onCategorySelected"/>
+                <AboutTop class="mb-6"
+                          :current="currentCategory"
+                          v-scroll="onScroll" @category-click="onCategorySelected"/>
                 <v-expand-transition group mode="in-out">
                     <AboutCardItem v-if="currentCategory" :key="`aci_${currentCategory}`"
                                    :info="currentCategory"/>
                 </v-expand-transition>
-                <p v-for="i in 30" :key="i">{{i}}</p>
             </v-container>
-            <v-overlay :value="overlay" absolute color="white" opacity="1">
+            <Footer class="mt-6"/>
+            <v-overlay :value="overlay" color="white" opacity="1">
                 <div>
                     <div class="text-h2 black--text animate__animated animate__backInDown">@knpreacher</div>
                     <div class="d-flex align-center justify-center">
@@ -37,21 +39,22 @@
     import AboutTop from "./components/AboutTop";
     import NavBar from "./components/NavBar";
     import AboutCardItem from "./components/about_cards/AboutCardItem";
+    import Footer from "./components/Footer";
 
     export default {
         name: 'App',
 
-        components: {AboutCardItem, NavBar, AboutTop, Header},
+        components: {Footer, AboutCardItem, NavBar, AboutTop, Header},
         computed: {
             colorToolBar: function () {
-                return this.mScrollY > 200
+                return this.mScrollY > 380
             }
         },
 
         data() {
             return {
                 mScrollY: 0,
-                overlay: false,
+                overlay: true,
                 currentCategory: null
             }
         },
@@ -67,9 +70,9 @@
         },
 
         mounted() {
-            // setTimeout(() => {
-            //     this.overlay = false
-            // }, 3300)
+            setTimeout(() => {
+                this.overlay = false
+            }, 3300)
         }
     };
 </script>

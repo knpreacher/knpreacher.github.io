@@ -10,11 +10,13 @@
             <v-col v-for="(c, ind) in cards" :key="ind"
                    class="d-flex align-center justify-center"
                    sm="12" md="4">
-                <v-card flat
+                <v-card flat rounded
+                        :dark="current === c.title"
+                        :color="current === c.title ? 'red darken-2' : $vuetify.theme.dark ? '' : 'grey lighten-4'"
                         :ripple="false"
                         @click.prevent="$emit('category-click', c.title)"
                         style="height: 300px; width: 300px"
-                        class="d-flex flex-column justify-center align-center hoverable">
+                        class="d-flex flex-column justify-center align-center">
                     <lottie :options="{animationData: c.anim['default']}"
                             class="ma-3"
                             :height="lottieSize" :width="lottieSize"/>
@@ -35,6 +37,15 @@
         name: "AboutTop",
         components: {
             Lottie
+        },
+        props: {
+            // active: {
+            //     type: Boolean,
+            //     default: false
+            // },
+            current: {
+                default: null
+            }
         },
         data() {
             return {

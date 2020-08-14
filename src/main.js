@@ -7,5 +7,14 @@ Vue.config.productionTip = false;
 
 new Vue({
     vuetify,
+    data: {
+        social: [
+            ['instagram', 'https://www.instagram.com/knpreacher/'],
+            ['vk', 'https://vk.com/knpreacher'],
+            ['spotify', 'https://open.spotify.com/user/knpreacher'],
+            ['github', 'https://github.com/knpreacher'],
+            ['twitter', 'https://twitter.com/knpre'],
+        ]
+    },
     render: h => h(App)
 }).$mount('#app');
